@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import ProdutoArtesanal, FormaVenda
+from .models import Categoria
 
 
 class FormaVendaSerializer(serializers.ModelSerializer):
@@ -7,6 +8,7 @@ class FormaVendaSerializer(serializers.ModelSerializer):
         model = FormaVenda
         fields = ['id', 'produto', 'tipo', 'condicoes_pagamento', 'prazo_producao_dias', 'criado_em']
         read_only_fields = ['id', 'criado_em']
+
 
 
 class ProdutoArtesanalSerializer(serializers.ModelSerializer):
@@ -20,3 +22,9 @@ class ProdutoArtesanalSerializer(serializers.ModelSerializer):
             'usuario_responsavel', 'formas_venda', 'criado_em', 'atualizado_em'
         ]
         read_only_fields = ['id', 'usuario_responsavel', 'criado_em', 'atualizado_em']
+
+class CategoriaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Categoria
+        fields = '__all__'
